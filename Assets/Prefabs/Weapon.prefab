@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5084989147346338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -0.2, z: -0.1}
+  m_LocalPosition: {x: 0.15, y: -0.2, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6070848451848835943}
@@ -677,7 +677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4161816172398338523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -0.2, z: -0.1}
+  m_LocalPosition: {x: 0.15, y: -0.2, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4161816171820653730}
@@ -1360,9 +1360,9 @@ MonoBehaviour:
     m_Bits: 4
   hitWallSoundObject: {fileID: 7957836684536357650, guid: 869c9b719c52af045aa9bf18b32924f1, type: 3}
   hitEnemySoundObject: {fileID: 5904674424521725806, guid: 8fe2a3d96ee85d9468334a4370dbcd96, type: 3}
-  defaultPosition: {x: 0.2, y: -0.2, z: -0.1}
+  defaultPosition: {x: 0.15, y: -0.2, z: -0.1}
   aimPosition: {x: 0, y: -0.185, z: -0.2}
-  hidePosition: {x: 0.2, y: -0.5, z: -0.5}
+  hidePosition: {x: 0.15, y: -0.5, z: -0.5}
   defaultRotation: {x: 0, y: 0, z: 0}
   reloadRotation: {x: 10, y: 10, z: 0}
 --- !u!1 &4161816172776723262

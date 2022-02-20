@@ -29,7 +29,9 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private float recoilLossSpeed = 10f;
     [SerializeField] private GameObject[] muzzleFlashes;
     [SerializeField] public float recoilZMult = -0.25f;
-    [SerializeField] private LayerMask ignoreLayer;
+    [SerializeField] public LayerMask ignoreLayer;
+    [SerializeField] private GameObject hitWallSoundObject;
+    [SerializeField] private GameObject hitEnemySoundObject;
 
     [Header("Position and Rotation")]
     [SerializeField] public Vector3 defaultPosition = new Vector3(0.2f, -0.2f, -0.1f);
@@ -138,6 +140,9 @@ public class WeaponController : MonoBehaviour
 
     private void Shoot()
     {
+        int randomSoundId = Random.Range(0, currentWeapon.shootSoundEffects.Length);
+        currentWeapon.shootSoundEffects[randomSoundId].Play();
+
         currentWeapon.fireCooldown = currentWeapon.fireCooldownTime;
         currentWeapon.magazineAmmo -= 1;
 
@@ -150,6 +155,15 @@ public class WeaponController : MonoBehaviour
         {
             if (rayHit.transform.CompareTag("Wall"))
             {
+                GameObject hitSound = Instantiate(hitWallSoundObject, rayHit.point, Quaternion.identity, rayHit.transform);
+                Destroy(hitSound, 1f);
+                Instantiate(wallHitDecal, rayHit.point + rayHit.normal * wallHitOffset, Quaternion.LookRotation(rayHit.normal), rayHit.transform);
+            }
+            else if (rayHit.transform.CompareTag("Enemy"))
+            {
+                GameObject hitSound = Instantiate(hitEnemySoundObject, rayHit.point, Quaternion.identity, rayHit.transform);
+                Destroy(hitSound, 1f);
+                rayHit.collider.GetComponent<HealthManagement>().TakeDamage(currentWeapon.damage);
                 Instantiate(wallHitDecal, rayHit.point + rayHit.normal * wallHitOffset, Quaternion.LookRotation(rayHit.normal), rayHit.transform);
             }
         }
@@ -169,6 +183,7 @@ public class WeaponController : MonoBehaviour
     {
         currentActionState = (int)ActionState.reloading;
         reloadTime = currentWeapon.reloadTime;
+        currentWeapon.reloadSoundEffect.Play();
     }
 
     private void ContinueReloading()

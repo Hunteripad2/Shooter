@@ -12,6 +12,7 @@ TagManager:
   - Weapon Controller
   - Wall
   - Effects Folder
+  - Enemy
   layers:
   - Default
   - TransparentFX

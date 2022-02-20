@@ -17,6 +17,7 @@ public class WeaponComponent : MonoBehaviour
     [HideInInspector] public int magazineAmmo;
 
     [Header("Characteristics")]
+    [SerializeField] public int damage = 1;
     [SerializeField] public float fireCooldownTime = 0.1f;
     [SerializeField] public float reloadTime = 2f;
     [SerializeField] public int pocketSize = 0;
@@ -30,6 +31,8 @@ public class WeaponComponent : MonoBehaviour
 
     [Header("Shooting")]
     [SerializeField] public Transform muzzle;
+    [SerializeField] public AudioSource[] shootSoundEffects;
+    [SerializeField] public AudioSource reloadSoundEffect;
 
     [Header("Position and Rotation")]
     [SerializeField] public float repositionTime = 0.1f;

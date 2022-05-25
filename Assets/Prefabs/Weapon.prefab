@@ -151,7 +151,7 @@ MonoBehaviour:
   pocketAmmo: 120
   magazineAmmo: 30
   damage: 1
-  fireCooldownTime: 0.5
+  fireCooldownTime: 0.25
   reloadTime: 2
   pocketSize: 0
   magazineSize: 6
@@ -166,7 +166,7 @@ MonoBehaviour:
   - {fileID: 5956370111297029233}
   - {fileID: 5324902102937113409}
   reloadSoundEffect: {fileID: 6365890022290107419}
-  repositionTime: 0.1
+  repositionTime: 0.05
 --- !u!82 &3137693770168012255
 AudioSource:
   m_ObjectHideFlags: 0
@@ -719,7 +719,7 @@ MonoBehaviour:
   - {fileID: 9042188155119216963}
   - {fileID: 2566016888188028649}
   reloadSoundEffect: {fileID: 9146557632778083547}
-  repositionTime: 0.1
+  repositionTime: 0.15
 --- !u!82 &5189301366372041647
 AudioSource:
   m_ObjectHideFlags: 0

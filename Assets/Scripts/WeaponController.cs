@@ -151,6 +151,7 @@ public class WeaponController : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit rayHit;
+
         if (Physics.Raycast(ray, out rayHit, currentWeapon.shootingRange, ~ignoreLayer))
         {
             if (rayHit.transform.CompareTag("Wall"))
@@ -163,7 +164,14 @@ public class WeaponController : MonoBehaviour
             {
                 GameObject hitSound = Instantiate(hitEnemySoundObject, rayHit.point, Quaternion.identity, rayHit.transform);
                 Destroy(hitSound, 1f);
-                rayHit.collider.GetComponent<HealthManagement>().TakeDamage(currentWeapon.damage);
+
+                HealthManagement enemyHealth = rayHit.collider.GetComponent<HealthManagement>();
+                if (rayHit.collider.GetComponent<HealthManagement>() == null)
+                {
+                    enemyHealth = rayHit.collider.GetComponentInParent<HealthManagement>();
+                }
+
+                enemyHealth.TakeDamage(currentWeapon.damage);
                 Instantiate(wallHitDecal, rayHit.point + rayHit.normal * wallHitOffset, Quaternion.LookRotation(rayHit.normal), rayHit.transform);
             }
         }

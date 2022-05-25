@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController controller;
-    public Vector3 velocity;
-    private float defaultScaleY;
-    private float defaultPositionY;
+    [HideInInspector] private CharacterController controller;
+    [HideInInspector] public Vector3 velocity;
+    [HideInInspector] private float defaultScaleY;
+    [HideInInspector] private float defaultPositionY;
 
-    [Header("Movement properties")]
+    [Header("Movement")]
     [SerializeField] private float speed = 5f;
     [SerializeField] private float sprintSpeedMult = 2f;
     [SerializeField] private float crouchSpeedMult = 0.5f;
@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravityForce = -9.81f;
     [SerializeField] public float defaultVelocityY = -1f;
 
-    [Header("Environment properties")]
+    [Header("Environment")]
     [SerializeField] private Transform ceilingCheck;
     [SerializeField] private float ceilingCheckRadius = 0.25f;
     [SerializeField] private LayerMask ceilingMask;
